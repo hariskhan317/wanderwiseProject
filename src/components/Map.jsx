@@ -7,7 +7,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) { 
     // const classes = useStyles();
     return (
-        <div style={{ height: '90vh', width: '100%' }}>
+        <div style={{ height: '93vh', width: '100%' }}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
                 defaultCenter={coordinates} 

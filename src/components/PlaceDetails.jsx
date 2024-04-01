@@ -2,6 +2,10 @@ import React from 'react'
 import Rating from 'react-rating';
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { PiMedalLight } from "react-icons/pi";
+import { BsBrowserEdge } from "react-icons/bs";
+import { FaTripadvisor } from "react-icons/fa";
+
+
 function PlaceDetails({ place }) { 
   return (
     <div className='w-full mb-10 border rounded-md shaow-xl pt-5 pb-3 px-2 overflow-hidden'>
@@ -16,6 +20,9 @@ function PlaceDetails({ place }) {
             <div className=''>
                 <div className='text-xl font-semibold border-b font-montserrat'>{place.name}</div >
           </div>
+          <div className=''>   
+                <p className="font-montserrat font-medium ">{place.address}</p>     
+            </div>
           <div className='flex justify-between'>
                 <div className="font-montserrat text-sm text-gray-500 capitalize font-medium">{place.ranking_category} </div >  
                 <div className="font-montserrat font-medium text-sm text-gray-700">{place.price}$</div> 
@@ -34,14 +41,14 @@ function PlaceDetails({ place }) {
                 </div>
                 <div className="font-montserrat">Out of {place.num_reviews} reviews</div>
             </div>
-            <div  className='flex justify-between'>   
-                <div className="font-montserrat font-medium ">{place.ranking}</div>     
+            <div className='flex justify-between'>   
+                <p className="font-montserrat font-medium ">{place.ranking}</p>     
             </div>
         </div>
       </div>
       {/* tags & certificate */}
       <div> 
-          <div>
+          <div className='mt-5'>
             {place?.awards?.map((award) => (
               <div sx={{ display: 'flex', justifyContent: 'space-between'}}>
                <PiMedalLight />
@@ -54,7 +61,23 @@ function PlaceDetails({ place }) {
             <span className='border-2 bg-gray-200 text-gray-800 text-sm font-medium px-3 rounded-full whitespace-nowrap font-montserrat'>{item.name}</span> 
           ))}
           </div> 
-      
+        {/*  */}
+        
+        {console.log(place)}
+        <div className='flex gap-10 mt-10'>
+          <div>
+            <a className='flex gap-2 text-base font-medium font-montserrat' target="_blank" href={place.web_url}>
+              <FaTripadvisor className='text-2xl' />
+              <span>Trip Advisor</span>
+            </a>
+          </div>
+          <div>
+            <a className='flex gap-2 text-base font-medium font-montserrat' target="_blank" href={place.website}>
+              <BsBrowserEdge className='mt-0.5 text-lg' />
+              <span>Website</span>
+            </a>
+          </div>
+        </div>
 
       </div>
   </div>

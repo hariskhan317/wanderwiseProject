@@ -30,17 +30,8 @@ function App() {
   return (
     <div className="App">
       <Header setCoordinates={setCoordinates} />
-      <div className="grid grid-cols-7">
-        <div className="col-span-2 " style={{ height: '90vh', width: '100%', overflowY: 'auto' }}>
-          <List childClicked={childClicked}
-            type={type}
-            setType={setType}
-            rating={rating}
-            setRating={setRating}
-            places={places}
-            setPlaces={setPlaces} />
-        </div>
-        <div className="col-span-5">
+      <div className="grid-cols-1 md:grid grid-cols-8">
+        <div className="cols-span-1 md:col-span-5 order-first">
           <Map
             coordinates={coordinates}
             setCoordinates={setCoordinates}
@@ -50,6 +41,16 @@ function App() {
             setChildClicked={setChildClicked}
           />
         </div>
+        <div className="cols-span-1 md:col-span-3" style={{ height: '93vh', width: '100%', overflowY: 'auto' }}>
+          <List childClicked={childClicked}
+            type={type}
+            setType={setType}
+            rating={rating}
+            setRating={setRating}
+            places={places}
+            setPlaces={setPlaces} />
+        </div>
+
       </div>
     </div>
   );
