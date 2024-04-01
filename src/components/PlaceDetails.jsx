@@ -66,13 +66,13 @@ function PlaceDetails({ place }) {
         {console.log(place)}
         <div className='flex gap-10 mt-10'>
           <div>
-            <a className='flex gap-2 text-base font-medium font-montserrat' target="_blank" href={place.web_url}>
+            <a className='flex gap-2 text-base font-medium font-montserrat' rel="noreferrer"  target="_blank" href={place.web_url}>
               <FaTripadvisor className='text-2xl' />
               <span>Trip Advisor</span>
             </a>
           </div>
           <div>
-            <a className='flex gap-2 text-base font-medium font-montserrat' target="_blank" href={place.website}>
+            <a className='flex gap-2 text-base font-medium font-montserrat' rel="noreferrer"  target="_blank" href={place.website}>
               <BsBrowserEdge className='mt-0.5 text-lg' />
               <span>Website</span>
             </a>
