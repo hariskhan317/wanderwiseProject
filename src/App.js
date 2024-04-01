@@ -11,8 +11,7 @@ function App() {
   const [places, setPlaces] = useState(null);
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState({});
-  const [childClicked, setChildClicked] = useState(null)
-  const [autocomplete, setAutocomplete] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {

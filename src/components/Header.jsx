@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Autocomplete, useLoadScript } from '@react-google-maps/api';
 
-function Header({ setCoordinates }) {
-  const [searchResult, setSearchResult] = useState('');
+function Header({ setCoordinates }) { 
 
   const autocompleteRef = useRef();
 
@@ -19,8 +18,6 @@ function Header({ setCoordinates }) {
     const place = autocompleteRef.current.getPlace();
     const lat = place.geometry.location.lat();
     const lng = place.geometry.location.lng();
-    setSearchResult(place);
-    console.log('Selected place:', place);
     console.log('Latitude:', lat);
     console.log('Longitude:', lng);
     setCoordinates({ lat, lng });
@@ -35,6 +32,7 @@ function Header({ setCoordinates }) {
     <div className='flex justify-between w-full bg-gray-800 pb-4 px-10'>
       <div className='pt-3 font-montserrat text-white font-medium text-3xl'>WANDER WISE</div>
       <Autocomplete
+        className='mt-3'
         onPlaceChanged={onPlaceChanged}
         onLoad={onLoad}>
 
