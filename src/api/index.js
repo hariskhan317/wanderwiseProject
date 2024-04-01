@@ -21,3 +21,25 @@ export const getPlaces = async (type, sw, ne) => {
         console.error(error);
     }
 };
+
+
+export const getPlaceDetails = async() => {
+    const options = {
+        method: 'GET',
+        url: 'https://map-places.p.rapidapi.com/details/json',
+        params: {
+          place_id: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        },
+        headers: {
+          'X-RapidAPI-Key': 'be279aaa0emshd0c853a0039902cp1f94fajsne5f437822d1f',
+          'X-RapidAPI-Host': 'map-places.p.rapidapi.com'
+        }
+      };
+      
+      try {
+          const response = await axios.request(options);
+          console.log(response.data);
+      } catch (error) {
+          console.error(error);
+      }
+}

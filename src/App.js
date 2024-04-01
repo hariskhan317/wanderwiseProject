@@ -12,6 +12,7 @@ function App() {
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState({});
   const [childClicked, setChildClicked] = useState(null)
+  const [autocomplete, setAutocomplete] = useState(null);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header setCoordinates={setCoordinates} />
       <div className="grid grid-cols-7">
         <div className="col-span-2 " style={{ height: '90vh', width: '100%', overflowY: 'auto' }}>
           <List childClicked={childClicked}

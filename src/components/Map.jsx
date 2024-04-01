@@ -31,7 +31,7 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                                 className='w-full h-full'
                             src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                             />
-                            <div className='text-xs font-medium'>{place.name}</div>
+                            <div className='text-xs font-medium font-montserrat'>{place.name}</div>
                             <Rating
                   className='text-yellow-500 mt-0.5 ml-1'
                       emptySymbol={<FaRegStar />}
