@@ -22,7 +22,7 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                 onChildClick={((child) => setChildClicked(child))}
             >
                 {places?.map((place, index) => (
-                    <div key={index} className='w-44 h-44'
+                    <div key={index} className='w-60 h-60 p-3 bg-white border'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: '100px', width: '100px', background: 'white !important'}}>
@@ -31,7 +31,7 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                                 className='w-full h-full'
                             src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                             />
-                            <div className='text-sm'>{place.name}</div>
+                            <div className='text-xs font-medium'>{place.name}</div>
                             <Rating
                   className='text-yellow-500 mt-0.5 ml-1'
                       emptySymbol={<FaRegStar />}
