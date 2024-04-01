@@ -22,7 +22,7 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                 onChildClick={((child) => setChildClicked(child))}
             >
                 {places?.map((place, index) => (
-                    <div key={index} className='w-60 h-60 p-3 bg-white border'
+                    <div key={index} className='w-48 h-48 p-3 bg-white border'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: '100px', width: '100px', background: 'white !important'}}>
