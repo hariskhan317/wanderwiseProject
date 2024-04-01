@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react'; 
-//import RoomIcon from '@mui/icons-material/Room';
+import Rating from 'react-rating';
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 
 function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) { 
@@ -21,17 +22,23 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                 onChildClick={((child) => setChildClicked(child))}
             >
                 {places?.map((place, index) => (
-                    <div key={index} style={{height: '200px', width: '300px' }}
+                    <div key={index} className='w-44 h-44'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: '100px', width: '100px', background: 'white !important'}}>
                             <img
                                 alt={place.name}
-                                style={{ height: '100px !important', width: '100px !important' }}
+                                className='w-full h-full'
                             src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                             />
-                            <div>{place.name}</div>
-                            {/* <Rating size="small" name="read-only" value={place.rating} precision={0.5} readOnly /> */}
+                            <div className='text-sm'>{place.name}</div>
+                            <Rating
+                  className='text-yellow-500 mt-0.5 ml-1'
+                      emptySymbol={<FaRegStar />}
+                      fullSymbol={<FaStar />} 
+                      initialRating={place.rating}
+                      fractions={2}
+                    />
                         </div>
                     </div>
                 ))}

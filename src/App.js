@@ -3,6 +3,7 @@ import Header from './components/Header';
 import List from './components/List'
 import Map from './components/Map';
 import { getPlaces } from './api/index';
+import './App.css'
 
 function App() {
   const [type, setType] = useState('restaurants');
@@ -29,8 +30,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="grid grid-cols-12">
-        <div className="col-span-3">
+      <div className="grid grid-cols-7">
+        <div className="col-span-2 " style={{ height: '90vh', width: '100%', overflowY: 'auto' }}>
           <List childClicked={childClicked}
             type={type}
             setType={setType}
@@ -39,7 +40,7 @@ function App() {
             places={places}
             setPlaces={setPlaces} />
         </div>
-        <div className="col-span-9">
+        <div className="col-span-5">
           <Map
             coordinates={coordinates}
             setCoordinates={setCoordinates}
