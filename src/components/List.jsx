@@ -6,14 +6,7 @@ function List({type, setType, places, childClicked, isLoading}) {
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
-    // Check if places is not null and is an array
-    if (places && Array.isArray(places)) {
-      const refs = Array(places.length)
-        .fill()
-        .map((_, i) => elRefs[i] || createRef());
-
-      setElRefs(refs);
-    }
+    setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
   }, [places, elRefs]);
 
   return (
@@ -44,7 +37,7 @@ function List({type, setType, places, childClicked, isLoading}) {
                 </form>    
               </div>
               {/* card */}  
-              {places && places.map((place, i) => (
+              {places?.map((place, i) => (
                 <div key={i} >
                   <PlaceDetails place={place} selected={Number(childClicked) === i} refProp={elRefs[i]} />
                 </div>

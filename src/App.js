@@ -41,7 +41,6 @@ function App() {
   useEffect(() => {
     if (places) {
       const filteredPlacesList = filterPlacesWithNamesAndIds(places);
-      console.log({ filteredPlacesList });
       setFilteredPlaces(filteredPlacesList);
     }
   }, [places]);
