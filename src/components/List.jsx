@@ -3,7 +3,7 @@ import PlaceDetails from '../components/PlaceDetails'
 import { Puff } from 'react-loader-spinner';
 
 function List({ type, setType, places, childClicked, isLoading }) {
-  {console.log({childClicked})}
+
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ function List({ type, setType, places, childClicked, isLoading }) {
 
   return (
     <div className='p-5'>
+      {console.log({childClicked})}
       <div className='font-montserrat text-xl font-medium'>Hotels, Restaurants, Attractions around you</div>
         {isLoading ? (
             <div className="absolute top-[35%] right-[15%]">
