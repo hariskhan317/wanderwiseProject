@@ -1,11 +1,12 @@
 import React from 'react'
 import PlaceDetails from '../components/PlaceDetails'
- 
+import { Puff } from 'react-loader-spinner';
 
 function List({type, setType, rating, setRating, places, childClicked}) {
     console.log({childClicked})
   return (
-      <div className='p-5'>
+    <div className='p-5'>
+      {console.log(places)}
         <div className='font-montserrat text-xl font-medium'>Hotels, Restaurants, Attractions around you</div>
         <div className='flex gap-10 py-4'>
             <form variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -39,29 +40,18 @@ function List({type, setType, rating, setRating, places, childClicked}) {
             </form>      
         </div>
           {/* card */}  
-          {console.log(places)}
         {places ? (
             places.map((place) => (
                 <PlaceDetails key={place.id} place={place} />
             ))
-          ) : null
-            //   (
-            // <CircularProgress
-            //       variant="indeterminate"
-            // sx={{ 
-            //     color: '#308fe8',
-            //     animationDuration: '550ms',
-            //     position: 'absolute',
-            //     left: '10%',
-            //     top: '50%',
-            //     [`& .${circularProgressClasses.circle}`]: {
-            //       strokeLinecap: 'round',
-            //     },
-            //   }}
-            //   size={80}
-            //   thickness={4}
-            //       />
-            // )
+      ) : (<div      className="absolute top-[35%] right-[15%]">
+          <Puff 
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000}
+          />
+      </div>)
         }
     </div>
   )

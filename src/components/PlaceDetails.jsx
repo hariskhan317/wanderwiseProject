@@ -62,8 +62,7 @@ function PlaceDetails({ place }) {
           ))}
           </div> 
         {/*  */}
-        
-        {console.log(place)}
+         
         <div className='flex gap-10 mt-10'>
           <div>
             <a className='flex gap-2 text-base font-medium font-montserrat' rel="noreferrer"  target="_blank" href={place.web_url}>

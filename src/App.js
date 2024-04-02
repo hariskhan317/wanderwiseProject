@@ -12,6 +12,8 @@ function App() {
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState({});
   const [childClicked, setChildClicked] = useState(null);
+  const [ filteredPlaces, setFilteredPlaces] = useState(null)
+
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -27,6 +29,20 @@ function App() {
       .catch((err) => console.log(err))
   }, [type, bounds]);
 
+
+
+  function filterPlacesWithNamesAndIds(places) { 
+    return places.filter(place => place && place.name !== undefined);
+  }
+
+  useEffect(() => {
+    if (places) {
+      const filteredPlacesList = filterPlacesWithNamesAndIds(places);
+      console.log({ filteredPlacesList });
+      setFilteredPlaces(filteredPlacesList);
+    }
+  }, [places]);
+
   return (
     <div className="App">
       <Header setCoordinates={setCoordinates} />
@@ -37,7 +53,7 @@ function App() {
             setCoordinates={setCoordinates}
             bounds={bounds}
             setBounds={setBounds}
-            places={places}
+            places={filteredPlaces}
             setChildClicked={setChildClicked}
           />
         </div>
@@ -47,7 +63,7 @@ function App() {
             setType={setType}
             rating={rating}
             setRating={setRating}
-            places={places}
+            places={filteredPlaces}
             setPlaces={setPlaces} />
         </div>
 
