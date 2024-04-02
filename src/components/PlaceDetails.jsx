@@ -11,7 +11,7 @@ function PlaceDetails({ place, selected, refProp }) {
   if(selected) refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
 
   return (
-    <div className='w-full mb-10 border rounded-md shaow-xl pt-5 pb-3 px-2 overflow-hidden'>
+    <div ref={refProp} className='w-full mb-10 border rounded-md shaow-xl pt-5 pb-3 px-2 overflow-hidden'>
       {/* main */}
       <div className='grid grid-cols-5 gap-5'>
         <div className='col-span-2'>
