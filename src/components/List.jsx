@@ -2,12 +2,13 @@ import React, { useState, useEffect, createRef } from 'react'
 import PlaceDetails from '../components/PlaceDetails'
 import { Puff } from 'react-loader-spinner';
 
-function List({type, setType, places, childClicked, isLoading}) {
+function List({ type, setType, places, childClicked, isLoading }) {
+  {console.log({childClicked})}
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
     setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
-  }, [places, elRefs]);
+  }, [places]);
 
   return (
     <div className='p-5'>
