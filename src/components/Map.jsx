@@ -21,7 +21,7 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                 
             >
                 {places?.map((place, index) => (
-                    <div onClick={((child) => setChildClicked(child))} key={index} className='cursor-pointer relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
+                    <div key={index} onClick={(() => setChildClicked(index))} className='cursor-pointer relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: 'auto', width: 'auto', background: 'white !important'}}>
