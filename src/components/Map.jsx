@@ -33,12 +33,13 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                             />
                             <div className='text-xs font-medium font-montserrat'>{place.name}</div>
                             <Rating
-                  className='text-yellow-500 mt-0.5 ml-1'
-                      emptySymbol={<FaRegStar />}
-                      fullSymbol={<FaStar />} 
-                      initialRating={place.rating}
-                      fractions={2}
-                    />
+                                className='text-yellow-500 mt-0.5 ml-1'
+                                emptySymbol={<FaRegStar />}
+                                fullSymbol={<FaStar />} 
+                                initialRating={place.rating}
+                                fractions={2}
+                                readonly
+                            />
                         </div>
                     </div>
                 ))}

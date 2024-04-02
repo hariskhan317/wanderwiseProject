@@ -37,6 +37,7 @@ function PlaceDetails({ place }) {
                       fullSymbol={<FaStar />} 
                       initialRating={place.rating}
                       fractions={2}
+                      readonly
                     />
                 </div>
                 <div className="font-montserrat">Out of {place.num_reviews} reviews</div>
