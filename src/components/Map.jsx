@@ -18,10 +18,10 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng })
                     setBounds({ne: e.marginBounds.ne, sw: e.marginBounds.sw})
                 }}
-                onChildClick={((child) => setChildClicked(child))}
+                
             >
                 {places?.map((place, index) => (
-                    <div key={index} className='cursor-pointer relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
+                    <div onClick={((child) => setChildClicked(child))} key={index} className='cursor-pointer relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: 'auto', width: 'auto', background: 'white !important'}}>
