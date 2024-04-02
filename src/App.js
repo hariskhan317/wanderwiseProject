@@ -12,7 +12,8 @@ function App() {
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState({});
   const [childClicked, setChildClicked] = useState(null);
-  const [ filteredPlaces, setFilteredPlaces] = useState(null)
+  const [filteredPlaces, setFilteredPlaces] = useState(null)
+  const [isLoading, setisLoading] = useState(false)
 
 
   useEffect(() => {
@@ -22,9 +23,11 @@ function App() {
   }, [])
 
   useEffect(() => {
+    setisLoading(true);
     getPlaces(type, bounds.sw, bounds.ne)
       .then((data) => {
-        setPlaces(data)
+        setPlaces(data);
+        setisLoading(false);
       })
       .catch((err) => console.log(err))
   }, [type, bounds]);
@@ -64,6 +67,7 @@ function App() {
             rating={rating}
             setRating={setRating}
             places={filteredPlaces}
+            isLoading={isLoading}
             setPlaces={setPlaces} />
         </div>
 

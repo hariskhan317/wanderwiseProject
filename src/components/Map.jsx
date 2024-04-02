@@ -5,7 +5,6 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 
 
 function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) { 
-    // const classes = useStyles();
     return (
         <div style={{ height: '93vh', width: '100%' }}>
             <GoogleMapReact
@@ -22,14 +21,14 @@ function Map({places, coordinates, setCoordinates, setBounds, setChildClicked}) 
                 onChildClick={((child) => setChildClicked(child))}
             >
                 {places?.map((place, index) => (
-                    <div key={index} className='relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
+                    <div key={index} className='cursor-pointer relative w-40 h-auto p-3 bg-white border z-10 hover:z-[100000000000]'
                         lat={Number(place.latitude)}
                         lng={Number(place.longitude)}>
                         <div elevation={3} style={{height: 'auto', width: 'auto', background: 'white !important'}}>
                             <img
                                 alt={place.name}
                                 className='w-full h-full'
-                            src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
+                                src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                             />
                             <div className='text-xs font-medium font-montserrat'>{place.name}</div>
                             <Rating

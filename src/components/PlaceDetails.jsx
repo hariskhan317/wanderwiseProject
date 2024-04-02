@@ -6,7 +6,10 @@ import { BsBrowserEdge } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
 
 
-function PlaceDetails({ place }) { 
+function PlaceDetails({ place, selected, refProp }) { 
+
+  if(selected) refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
+
   return (
     <div className='w-full mb-10 border rounded-md shaow-xl pt-5 pb-3 px-2 overflow-hidden'>
       {/* main */}
